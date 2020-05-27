@@ -32,12 +32,11 @@ export default function VideoGrid() {
 		<Grid container className={classes.root}>
 			<Grid item justify="center" alignItems="center" md={12}>
 				<Grid container>
-					<Video marginBottom={10} />
-
-					<Video />
-					<Video />
-					<Video />
-					<Video />
+					<Video name="vide stream 0" marginBottom={10} />
+					<Video name="vide stream 1" />
+					<Video name="vide stream 2" />
+					<Video name="vide stream 3" />
+					<Video name="vide stream 4" />
 				</Grid>
 				<Grid container direction="column" justify="center" alignItems="center" />
 			</Grid>

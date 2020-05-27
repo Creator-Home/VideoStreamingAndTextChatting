@@ -8,46 +8,56 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import { Link } from '@material-ui/core';
+import SimpleModal from './Modal';
+import UrlModal from './ModalUrl';
 
 const useStyles = makeStyles({
 	root: {
 		maxWidth: 345
 	}
 });
+const handleClick = () => {
+	console.log('Event fired');
+};
 
-export default function Video() {
+const Video = (props) => {
 	const classes = useStyles();
 
 	return (
 		<Grid xs={12} sm={6} md={3} m={2}>
-			<Card className={classes.root}>
-				<CardActionArea>
-					<CardMedia
-						component="img"
-						alt="Contemplative Reptile"
-						height="140"
-						image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGZgGh7q5XYZy0h2jsI6Uov3o3zcrZ6B7duMOtcQgxvkg1EXkX&usqp=CAU"
-						title="Contemplative Reptile"
-					/>
-					<CardContent>
-						<Typography gutterBottom variant="h5" component="h2">
-							Video Title
-						</Typography>
-						<Typography variant="body2" color="textSecondary" component="p">
-							Stream Description Stream DescriptionStream DescriptionStream DescriptionStream
-							DescriptionStream
-						</Typography>
-					</CardContent>
-				</CardActionArea>
-				<CardActions>
-					<Button size="small" color="primary">
-						Play/Stream
-					</Button>
-					<Button size="small" color="primary">
-						Share Static URL
-					</Button>
-				</CardActions>
-			</Card>
+			<div style={{ margin: '8px' }}>
+				<Card className={classes.root}>
+					<CardActionArea onClick={handleClick}>
+						<CardMedia
+							component="img"
+							alt="Contemplative Reptile"
+							height="140"
+							image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGZgGh7q5XYZy0h2jsI6Uov3o3zcrZ6B7duMOtcQgxvkg1EXkX&usqp=CAU"
+							title="Contemplative Reptile"
+						/>
+						<CardContent>
+							<Typography gutterBottom variant="h5" component="h2">
+								{props.name}
+							</Typography>
+							<Typography variant="body2" color="textSecondary" component="p">
+								{props.children}
+							</Typography>
+						</CardContent>
+					</CardActionArea>
+					<CardActions>
+						{/* <Button onClick={handleClick} size="small" color="primary">
+							Play/Stream
+						</Button> */}
+						<SimpleModal name={props.name} description={props.description} />
+						{/* <Button size="small" color="primary">
+							Share Static URL
+						</Button> */}
+						<UrlModal name={props.name} url={props.url} />
+					</CardActions>
+				</Card>
+			</div>
 		</Grid>
 	);
-}
+};
+export default Video;

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Greet from './components/Greet';
+// import Greet from './components/Greet';
 import MainApp from './components/MainApp';
 
 function App() {
