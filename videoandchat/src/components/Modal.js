@@ -4,6 +4,8 @@ import Modal from '@material-ui/core/Modal';
 import { Button } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
 // import Paper from '@material-ui/core';
 
 function getModalStyle() {
@@ -70,8 +72,19 @@ const SimpleModal = (props) => {
 			<Button type="button" onClick={handleOpen} size="small" color="primary">
 				Open Video
 			</Button>
-			<Modal open={open} onClose={handleClose} aria-labelledby="video-title" aria-describedby="video-description">
-				{body}
+			<Modal
+				closeAfterTransition
+				BackdropComponent={Backdrop}
+				BackdropProps={{
+					timeout: 500
+				}}
+				className={classes.modal}
+				open={open}
+				onClose={handleClose}
+				aria-labelledby="video-title"
+				aria-describedby="video-description"
+			>
+				<Fade in={open}>{body}</Fade>
 			</Modal>
 		</div>
 	);
