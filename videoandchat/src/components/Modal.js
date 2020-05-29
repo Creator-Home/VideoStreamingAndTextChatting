@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import ChatMain from './Chat';
 // import Paper from '@material-ui/core';
 
 function getModalStyle() {
@@ -58,10 +59,11 @@ const SimpleModal = (props) => {
 						</video>
 					</Card>
 				</Grid>
-				<Card>
-					<h1 style={{ padding: '50px' }}>Chat under construction</h1>
-				</Card>
-				<Grid />
+				<Grid p={2} style={{ maxHeight: '80%' }}>
+					<Card>
+						<ChatMain />
+					</Card>
+				</Grid>
 			</Grid>
 			<p id="video-description">{props.description}</p>
 		</div>
@@ -76,7 +78,7 @@ const SimpleModal = (props) => {
 				closeAfterTransition
 				BackdropComponent={Backdrop}
 				BackdropProps={{
-					timeout: 500
+					timeout: 1000
 				}}
 				className={classes.modal}
 				open={open}

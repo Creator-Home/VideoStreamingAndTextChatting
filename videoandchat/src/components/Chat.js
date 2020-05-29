@@ -1,50 +1,40 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import { Chat, Channel, ChannelHeader, Window } from 'stream-chat-react';
+import { MessageList, MessageInput, MessageLivestream } from 'stream-chat-react';
+import { MessageInputSmall, Thread } from 'stream-chat-react';
+import { StreamChat } from 'stream-chat';
 
-const useStyles = makeStyles({
-	root: {
-		maxWidth: 345
-	}
+import 'stream-chat-react/dist/css/index.css';
+
+const chatClient = new StreamChat('gx5a64bj4ptz');
+const userToken =
+	'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibW9ybmluZy1mb3Jlc3QtOSJ9.jlqKbW3i-h9SgVYxa3AJ2-F8UwTl0CSC4gHNRkspdE8';
+
+chatClient.setUser(
+	{
+		id: 'morning-forest-9',
+		name: 'Morning forest',
+		image: 'https://getstream.io/random_svg/?id=morning-forest-9&name=Morning+forest'
+	},
+	userToken
+);
+
+const channel = chatClient.channel('livestream', 'spacex', {
+	image: 'https://goo.gl/Zefkbx',
+	name: 'SpaceX launch discussion'
 });
 
-export default function Chat() {
-	const classes = useStyles();
+const ChatMain = () => (
+	<Chat client={chatClient} theme={'livestream dark'}>
+		<Channel channel={channel} Message={MessageLivestream}>
+			<Window hideOnThread>
+				<ChannelHeader live />
+				<MessageList />
+				<MessageInput Input={MessageInputSmall} focus />
+			</Window>
+			<Thread fullWidth />
+		</Channel>
+	</Chat>
+);
 
-	return (
-		<Card className={classes.root}>
-			<CardActionArea>
-				<CardMedia
-					component="img"
-					alt="Contemplative Reptile"
-					height="140"
-					image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGZgGh7q5XYZy0h2jsI6Uov3o3zcrZ6B7duMOtcQgxvkg1EXkX&usqp=CAU"
-					title="Contemplative Reptile"
-				/>
-				<CardContent>
-					<Typography gutterBottom variant="h5" component="h2">
-						Lizard
-					</Typography>
-					<Typography variant="body2" color="textSecondary" component="p">
-						Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
-						continents except Antarctica
-					</Typography>
-				</CardContent>
-			</CardActionArea>
-			<CardActions>
-				<Button size="small" color="primary">
-					Share
-				</Button>
-				<Button size="small" color="primary">
-					Learn More
-				</Button>
-			</CardActions>
-		</Card>
-	);
-}
+export default ChatMain;

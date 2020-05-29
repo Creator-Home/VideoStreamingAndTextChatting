@@ -1,14 +1,28 @@
-import React from 'react';
 import './App.css';
-// import Greet from './components/Greet';
-import MainApp from './components/MainApp';
+import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-function App() {
-	return (
-		<div className="App">
-			<MainApp />
-		</div>
-	);
+import Home from './components/Home';
+import Videostream from './components/Videostream';
+
+import Error from './components/Error';
+import Navigation from './components/Navigation';
+
+export default class App extends Component {
+	render() {
+		return (
+			<BrowserRouter>
+				<div>
+					<Navigation />
+					<Switch>
+						<Route path="/" component={Home} exact />
+
+						<Route path="/videostream" component={Videostream} />
+
+						<Route component={Error} />
+					</Switch>
+				</div>
+			</BrowserRouter>
+		);
+	}
 }
-
-export default App;
