@@ -6,7 +6,7 @@ import { StreamChat } from 'stream-chat';
 
 import 'stream-chat-react/dist/css/index.css';
 
-const chatClient = new StreamChat('gx5a64bj4ptz');
+const chatClient = new StreamChat('2jv72tcw2y67');
 const userToken =
 	'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibW9ybmluZy1mb3Jlc3QtOSJ9.jlqKbW3i-h9SgVYxa3AJ2-F8UwTl0CSC4gHNRkspdE8';
 
@@ -21,7 +21,7 @@ chatClient.setUser(
 
 const channel = chatClient.channel('livestream', 'spacex', {
 	image: 'https://goo.gl/Zefkbx',
-	name: 'SpaceX launch discussion'
+	name: 'Videostream Chat'
 });
 
 const ChatMain = () => (

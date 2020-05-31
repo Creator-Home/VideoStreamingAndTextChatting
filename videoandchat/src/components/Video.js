@@ -9,7 +9,8 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { Link } from '@material-ui/core';
-import SimpleModal from './Modal';
+import { NavLink } from 'react-router-dom';
+
 import UrlModal from './ModalUrl';
 
 const useStyles = makeStyles({
@@ -25,16 +26,16 @@ const Video = (props) => {
 	const classes = useStyles();
 
 	return (
-		<Grid xs={12} sm={6} md={3} m={2}>
+		<Grid xs={12} sm={5} md={3} m={2}>
 			<div style={{ margin: '8px' }}>
 				<Card className={classes.root}>
 					<CardActionArea onClick={handleClick}>
 						<CardMedia
 							component="img"
-							alt="Contemplative Reptile"
+							alt="Video stream thumbnail"
 							height="140"
-							image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGZgGh7q5XYZy0h2jsI6Uov3o3zcrZ6B7duMOtcQgxvkg1EXkX&usqp=CAU"
-							title="Contemplative Reptile"
+							image="https://picsum.photos/200"
+							title="Video stream thumbnail"
 						/>
 						<CardContent>
 							<Typography gutterBottom variant="h5" component="h2">
@@ -46,14 +47,13 @@ const Video = (props) => {
 						</CardContent>
 					</CardActionArea>
 					<CardActions>
-						{/* <Button onClick={handleClick} size="small" color="primary">
-							Play/Stream
-						</Button> */}
-						<SimpleModal name={props.name} description={props.description} />
-						{/* <Button size="small" color="primary">
+						<Button onClick={handleClick} size="small" color="primary">
+							<NavLink to="/videostream">Open Stream</NavLink>
+						</Button>
+
+						<Button onClick={handleClick} size="small" color="primary">
 							Share Static URL
-						</Button> */}
-						<UrlModal name={props.name} url={props.url} />
+						</Button>
 					</CardActions>
 				</Card>
 			</div>

@@ -3,6 +3,7 @@ import { spacing } from '@material-ui/system';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Video from './Video';
+// import { useBouncyShadowStyles } from './Bounce';
 // import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +24,6 @@ const theme = {
 export default function VideoGrid() {
 	const [ spacing, setSpacing ] = React.useState(4);
 	const classes = useStyles();
-
 	const handleChange = (event) => {
 		setSpacing(Number(event.target.value));
 	};
