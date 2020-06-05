@@ -6,25 +6,25 @@ import { StreamChat } from 'stream-chat';
 
 import 'stream-chat-react/dist/css/index.css';
 
-const chatClient = new StreamChat('2jv72tcw2y67');
+const chatClient = new StreamChat('8a8sxmg4dxhm');
 const userToken =
-	'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibW9ybmluZy1mb3Jlc3QtOSJ9.jlqKbW3i-h9SgVYxa3AJ2-F8UwTl0CSC4gHNRkspdE8';
+	'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiYXV0dW1uLWZvZy05In0.k0OTi-HLW5jbMoR8-sw3eN5CoyD653g_EPOGNqDb0H4';
 
 chatClient.setUser(
 	{
-		id: 'morning-forest-9',
-		name: 'Morning forest',
-		image: 'https://getstream.io/random_svg/?id=morning-forest-9&name=Morning+forest'
+		id: 'autumn-fog-9',
+		name: 'Autumn fog',
+		image: 'https://picsum.photos/200'
 	},
 	userToken
 );
 
-const channel = chatClient.channel('livestream', 'spacex', {
-	image: 'https://goo.gl/Zefkbx',
-	name: 'Videostream Chat'
+const channel = chatClient.channel('livestream', 'creator', {
+	image: 'https://picsum.photos/200',
+	name: 'LiveStream Discuss'
 });
 
-const ChatMain = () => (
+const App = () => (
 	<Chat client={chatClient} theme={'livestream dark'}>
 		<Channel channel={channel} Message={MessageLivestream}>
 			<Window hideOnThread>
@@ -37,4 +37,4 @@ const ChatMain = () => (
 	</Chat>
 );
 
-export default ChatMain;
+export default App;

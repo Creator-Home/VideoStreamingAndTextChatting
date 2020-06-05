@@ -1,6 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import ChatMain from './Chat';
+import ChatF from './ChatF';
 const mystyle = {
 	marginbottom: '30px',
 	maxwidth: '400px'
@@ -25,7 +26,7 @@ const Videostream = () => {
 				</Grid>
 
 				<Grid style={mystyle} xs={12} sm={4} md={4}>
-					<ChatMain />
+					<ChatF />
 				</Grid>
 			</Grid>
 		</div>
