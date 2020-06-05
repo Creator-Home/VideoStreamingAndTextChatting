@@ -1,10 +1,10 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import ChatMain from './Chat';
 import ChatF from './ChatF';
 const mystyle = {
 	marginbottom: '30px',
-	maxwidth: '400px'
+	maxwidth: '400px',
+	margintop: '40px'
 };
 const vidstyle = {
 	margin: '2%'
@@ -14,7 +14,7 @@ const Videostream = () => {
 		<div>
 			{/* <input type="file" accept="video/*" />
 			<video controls autoplay /> */}
-			<Grid container direction="row" justify="flex-start" alignItems="flex-start">
+			<Grid container direction="row" justify="flex-start" alignItems="center">
 				<Grid xs={12} sm={6} md={6}>
 					<video style={vidstyle} controls autoplay src="http://smoothcode.co/video/this.mp4" />
 					<Grid style={vidstyle}>

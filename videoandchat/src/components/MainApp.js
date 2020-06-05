@@ -18,10 +18,9 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import VideoGrid from './VideoGrid';
 // import TableStates from './Table';
-import { Grid, Paper } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
-import RefreshFloat from './Refresh';
 // import Video from './Video';
 // import { deepPurple, grey, purple } from '@material-ui/core/colors';
 
@@ -192,9 +191,6 @@ export default function MiniDrawer() {
 								inputProps={{ 'aria-label': 'search' }}
 							/>
 						</div>
-					</Grid>
-					<Grid>
-						<RefreshFloat />
 					</Grid>
 				</Toolbar>
 			</AppBar>
