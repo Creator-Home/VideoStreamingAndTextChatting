@@ -250,5 +250,5 @@ export default function MiniDrawer() {
 				</div>
 			</main>
 		</div>
-	);
+	); 
 }
