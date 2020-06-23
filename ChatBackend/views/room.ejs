@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chat App</title>
+  <script>
+    const roomName = "<%= roomName %>"
+  </script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+  <script defer src="script.js"></script>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      
+      justify-content: center;
+    }
+    .chat {
+
+        position: fixed;
+        bottom: 0;
+        width: auto;
+        align-items: center;
+
+        }
+
+    #connected{
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 3px 7px;
+      align-items: center;
+      border: none;
+      border-radius: 35px;
+      margin: 5px;
+      font-size: smaller;
+      margin-left: 150px;
+      background-color: rgb(158, 255, 166);
+      color: rgb(0, 146, 12);
+    }
+    #disconnected{
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 3px 7px;
+      align-items: center;
+      border: none;
+      border-radius: 35px;
+      margin: 5px;
+      font-size: smaller;
+      margin-left: 150px;
+      background-color: rgb(255, 161, 158);
+      color: rgb(146, 0, 0);
+    }
+    
+    #message{
+      color: white;
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: large;
+      padding: 5px 10px;
+      align-items: center;
+      border: none;
+      border-radius: 35px;
+      margin: 5px;
+      background-image: linear-gradient(121deg, rgba(136, 0, 181, 1) 0%, rgba(129, 3, 181, 1) 37%, rgb(0, 11, 161) 100%);
+      background: 'linear-gradient(121deg, rgba(136,0,181,1) 0%, rgba(129,3,181,1) 37%, rgba(0,61,189,1) 100%)';
+    
+    }
+   
+  </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/css/uikit.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+</head>
+<body>
+  <div style="flex-direction: column;max-width: 500px;" class="uk-container uk-container-xlarge">
+    <h2 style="text-align: center;">Recent Messages:</h2>
+  <hr class="uk-divider-large">
+  <div id="message-container"></div>
+  <form id="send-container" class="chat">
+    <div class="row offset-3">
+      <div class="col" style="padding-right: 0;padding-left: 0;">
+        <input id="message-input" style="border-radius: 20px 0px 0px 20px;margin-bottom: 15px;padding-bottom: 3px; padding-left: 17px;"
+          type="text" class="uk-input" placeholder="Type Message">
+      </div>
+      <div class="col" style="padding-right: 0;padding-left: 0;">
+        <button id="send-button" style="border-radius: 0px 20px 20px 0px;margin-bottom: 5px;"
+          class="uk-button uk-button-secondary">Send</button>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- <input type="text" id="message-input">
+    <button type="submit" id="send-button">Send</button> -->
+  </form>
+  </div>
+</body>
+</html>
