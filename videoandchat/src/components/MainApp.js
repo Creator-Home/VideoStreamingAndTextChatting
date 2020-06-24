@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme, fade } from '@material-ui/core/styles';
+import { ThemeProvider, makeStyles, useTheme, fade } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -21,10 +21,11 @@ import VideoGrid from './VideoGrid';
 import { Grid } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import { dark } from '@material-ui/core/styles/createPalette';
 // import Video from './Video';
 // import { deepPurple, grey, purple } from '@material-ui/core/colors';
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -46,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 		})
 	},
 	menuButton: {
-		marginRight: 36
+		marginRight: 30
 	},
 	hide: {
 		display: 'none'
@@ -69,9 +70,9 @@ const useStyles = makeStyles((theme) => ({
 			duration: theme.transitions.duration.leavingScreen
 		}),
 		overflowX: 'hidden',
-		width: theme.spacing(7) + 1,
+		width: theme.spacing(1) + 1,
 		[theme.breakpoints.up('sm')]: {
-			width: theme.spacing(9) + 1
+			width: theme.spacing(8) + 1
 		}
 	},
 	toolbar: {
@@ -84,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	content: {
 		flexGrow: 1,
-		padding: theme.spacing(3)
+		padding: theme.spacing(5)
 	},
 	title: {
 		flexGrow: 1,
@@ -108,7 +109,7 @@ const useStyles = makeStyles((theme) => ({
 		}
 	},
 	searchIcon: {
-		padding: theme.spacing(0, 2),
+		padding: theme.spacing(0, 1),
 		height: '100%',
 		position: 'absolute',
 		pointerEvents: 'none',
@@ -120,13 +121,13 @@ const useStyles = makeStyles((theme) => ({
 		color: 'inherit'
 	},
 	inputInput: {
-		padding: theme.spacing(1, 1, 1, 0),
+		padding: theme.spacing(1, 5, 1, 0),
 		// vertical padding + font size from searchIcon
 		paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
 		transition: theme.transitions.create('width'),
 		width: '100%',
 		[theme.breakpoints.up('sm')]: {
-			width: '12ch',
+			width: '15ch',
 			'&:focus': {
 				width: '20ch'
 			}
@@ -154,8 +155,9 @@ export default function MiniDrawer() {
 
 	return (
 		<div className={classes.root}>
+		<ThemeProvider>
 			<AppBar
-				position="fixed"
+				position="absolute"
 				className={clsx(classes.appBar, {
 					[classes.appBarShift]: open
 				})}
@@ -173,7 +175,7 @@ export default function MiniDrawer() {
 						<MenuIcon />
 					</IconButton>
 					<Grid container direction="column" justify="center" alignItems="flex-start">
-						<Typography variant="h6" noWrap>
+						<Typography variant="h6" gutterBottom>
 							The Creator <i class="fa fa-home" aria-hidden="true" />
 						</Typography>
 					</Grid>
@@ -249,6 +251,8 @@ export default function MiniDrawer() {
 					</Grid> */}
 				</div>
 			</main>
+			</ThemeProvider>
 		</div>
+		
 	); 
 }
